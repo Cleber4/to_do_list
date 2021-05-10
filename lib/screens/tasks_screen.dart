@@ -1,4 +1,7 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:to_do_list/screens/add_task_screen.dart';
 import 'package:to_do_list/widgets/task_list_widget.dart';
 
 class TasksScreen extends StatelessWidget {
@@ -7,9 +10,15 @@ class TasksScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.lightBlueAccent,
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
         backgroundColor: Colors.lightBlueAccent,
         child: Icon(Icons.add),
+        onPressed: () {
+          showModalBottomSheet(
+            context: context,
+            isScrollControlled: false,
+            builder: (context) => AddTaskScreen(),
+          );
+        },
       ),
       body: Column(
         children: [
