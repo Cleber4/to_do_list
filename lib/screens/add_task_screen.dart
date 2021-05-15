@@ -1,13 +1,14 @@
-// import 'dart:html';
-// import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter/services.dart';
 
 class AddTaskScreen extends StatelessWidget {
+  final Function addTaskCallBack;
+
+  AddTaskScreen({required this.addTaskCallBack});
   @override
   Widget build(BuildContext context) {
+    String? newTask;
+
     return Container(
       color: Color(0XFF757575),
       child: Container(
@@ -32,9 +33,11 @@ class AddTaskScreen extends StatelessWidget {
             TextField(
               autofocus: true,
               textAlign: TextAlign.center,
+              onChanged: (newText) {
+                newTask = newText;
+              },
             ),
             TextButton(
-              onPressed: () {},
               child: Text(
                 'Adicionar',
                 style: TextStyle(fontSize: 15.0),
@@ -45,6 +48,9 @@ class AddTaskScreen extends StatelessWidget {
                 shadowColor: Colors.black,
                 elevation: 5,
               ),
+              onPressed: () {
+                addTaskCallBack(newTask);
+              },
             ),
           ],
         ),
