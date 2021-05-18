@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:to_do_list/models/task_data.dart';
 
 class AddTaskScreen extends StatelessWidget {
-  final Function addTaskCallBack;
-
-  AddTaskScreen({required this.addTaskCallBack});
   @override
   Widget build(BuildContext context) {
     String? newTask;
@@ -49,7 +48,8 @@ class AddTaskScreen extends StatelessWidget {
                 elevation: 5,
               ),
               onPressed: () {
-                addTaskCallBack(newTask);
+                Provider.of<TaskData>(context, listen: false).addTask(newTask!);
+                Navigator.pop(context);
               },
             ),
           ],
