@@ -9,7 +9,7 @@ class AddTaskScreen extends StatelessWidget {
     String? newTask;
 
     return Container(
-      color: Color(0XFF757575),
+      color: Color(0XFF151515),
       child: Container(
         padding: EdgeInsets.all(7.4),
         decoration: BoxDecoration(
@@ -22,15 +22,16 @@ class AddTaskScreen extends StatelessWidget {
         child: Column(
           children: [
             Text(
-              'Add Task',
+              'Adicionar Tarefa',
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: Colors.lightBlueAccent,
-                fontSize: 15.0,
-              ),
+                  color: Colors.deepPurpleAccent,
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold),
             ),
             TextField(
               autofocus: true,
+              cursorColor: Colors.deepPurpleAccent,
               textAlign: TextAlign.center,
               onChanged: (newText) {
                 newTask = newText;
@@ -43,7 +44,7 @@ class AddTaskScreen extends StatelessWidget {
               ),
               style: TextButton.styleFrom(
                 primary: Colors.white,
-                backgroundColor: Colors.lightBlueAccent,
+                backgroundColor: Colors.deepPurpleAccent,
                 shadowColor: Colors.black,
                 elevation: 5,
               ),

@@ -9,10 +9,20 @@ import 'package:to_do_list/widgets/task_list_widget.dart';
 class TasksScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final textTaskCount = Provider.of<TaskData>(context).taskCount;
+    String textTask;
+    if (textTaskCount == 0) {
+      textTask = 'tarefas no momento';
+    } else if (textTaskCount == 1) {
+      textTask = 'Tarefa';
+    } else {
+      textTask = 'Tarefas';
+    }
+
     return Scaffold(
-      backgroundColor: Colors.lightBlueAccent,
+      backgroundColor: Colors.deepPurpleAccent,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.lightBlueAccent,
+        backgroundColor: Colors.deepPurpleAccent,
         child: Icon(Icons.add),
         onPressed: () {
           showModalBottomSheet(
@@ -35,7 +45,7 @@ class TasksScreen extends StatelessWidget {
                       child: Icon(
                         Icons.list,
                         size: 30.0,
-                        color: Colors.lightBlueAccent,
+                        color: Colors.deepPurpleAccent,
                       ),
                       radius: 30.0,
                       backgroundColor: Colors.white,
@@ -55,7 +65,7 @@ class TasksScreen extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          '${Provider.of<TaskData>(context).taskCount} Tasks',
+                          '$textTaskCount $textTask',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 18.0,
@@ -72,7 +82,7 @@ class TasksScreen extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 20.0),
               decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: Color(0XFF1E1E1E),
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(20.0),
                     topRight: Radius.circular(20.0),
